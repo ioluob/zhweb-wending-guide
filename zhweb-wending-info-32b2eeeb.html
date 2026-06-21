@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>问鼎娱乐 · 再次遇见</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f4f6;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2229;
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      padding: 0.9rem 2rem;
+      border-radius: 14px;
+      border: 1px solid #e5e8ed;
+      margin-bottom: 2.5rem;
+    }
+
+    .nav-brand {
+      font-weight: 600;
+      font-size: 1.25rem;
+      letter-spacing: 0.3px;
+      color: #1f2a3f;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #3b4658;
+      font-size: 0.98rem;
+      font-weight: 450;
+      padding: 0.2rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: #0c4a6e;
+      border-bottom-color: #2b6b93;
+    }
+
+    /* hero 区 */
+    .hero-card {
+      background: #ffffff;
+      padding: 2.8rem 2.8rem 2.4rem;
+      border-radius: 20px;
+      border: 1px solid #e2e6ec;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+      margin-bottom: 2.8rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .hero-card:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .hero-card h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #141c2a;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: #364151;
+      max-width: 80%;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-note {
+      background: #f6f8fa;
+      padding: 1rem 1.4rem;
+      border-radius: 12px;
+      border-left: 4px solid #6f8fad;
+      font-size: 0.96rem;
+      color: #304050;
+    }
+
+    .hero-note strong {
+      color: #1f2e44;
+    }
+
+    /* 三个场景模块 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .scene-card {
+      background: #ffffff;
+      border: 1px solid #e3e7ee;
+      border-radius: 18px;
+      padding: 1.8rem 1.5rem 1.6rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      transition: transform 0.1s ease, box-shadow 0.15s;
+    }
+
+    .scene-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    }
+
+    .scene-card h3 {
+      font-size: 1.3rem;
+      font-weight: 520;
+      margin-bottom: 0.6rem;
+      color: #1e2a3a;
+    }
+
+    .scene-card p {
+      color: #3b485a;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .scene-card .small-tag {
+      display: inline-block;
+      background: #eef2f6;
+      color: #2d4055;
+      font-size: 0.8rem;
+      padding: 0.15rem 0.7rem;
+      border-radius: 30px;
+      margin-top: 0.5rem;
+    }
+
+    /* 常见说明/FAQ 摘要 */
+    .faq-section {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid #e3e7ee;
+      padding: 2rem 2.2rem 2.2rem;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+      margin-bottom: 2.8rem;
+    }
+
+    .faq-section h2 {
+      font-weight: 520;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      color: #1f2a3f;
+    }
+
+    .faq-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid #e9edf3;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #1b2638;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      color: #3d4b5e;
+      font-size: 0.95rem;
+    }
+
+    .faq-a a {
+      color: #1e5a7a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 450;
+    }
+
+    .faq-a a:hover {
+      color: #0e3f59;
+    }
+
+    /* 底部收藏提示 */
+    .bookmark-note {
+      background: #ffffffd9;
+      backdrop-filter: blur(2px);
+      border: 1px solid #dadee6;
+      border-radius: 40px;
+      padding: 1.2rem 1.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      color: #2f3c4e;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .bookmark-note span {
+      background: #eef2f7;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+    }
+
+    .footer-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #dfe3eb;
+    }
+
+    /* 响应式 */
+    @media (max-width: 860px) {
+      .hero-desc {
+        max-width: 100%;
+      }
+
+      .scenes-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+        padding: 1rem 1.2rem;
+      }
+
+      .nav-links {
+        gap: 1.2rem;
+      }
+
+      .hero-card {
+        padding: 1.8rem 1.5rem;
+      }
+
+      .hero-card h1 {
+        font-size: 1.7rem;
+      }
+
+      .scenes-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .faq-section {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .bookmark-note {
+        border-radius: 28px;
+        padding: 0.9rem 1.2rem;
+      }
+    }
+
+    /* 点缀 */
+    .quiet-link {
+      color: #1e5a7a;
+      text-decoration: none;
+      border-bottom: 1px dotted #9bb1c5;
+    }
+
+    .quiet-link:hover {
+      border-bottom-style: solid;
+      color: #0f405b;
+    }
+
+    .gray-badge {
+      background: #ecf0f5;
+      padding: 0.1rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 顶部导航 -->
+  <header class="top-nav">
+    <span class="nav-brand">◈ 再次访问</span>
+    <nav class="nav-links">
+      <a href="#">首页</a>
+      <a href="#">场景</a>
+      <a href="#">收藏说明</a>
+      <a href="#">常见问题</a>
+    </nav>
+  </header>
+
+  <!-- hero 核心介绍 -->
+  <div class="hero-card">
+    <h1>关于 <span style="font-weight:560;">问鼎娱乐</span> · 持续关注</h1>
+    <p class="hero-desc">
+      如果你曾经来过这里，或者刚刚发现它，这是一份整理后的说明页。从再次访问、收藏到日常关注，下面梳理了几个你可能关心的方面。
+    </p>
+    <div class="hero-note">
+      <strong>▸ 关于站点</strong>  <span style="color:#4d6077;">问鼎娱乐</span> 是一个提供信息呈现与内容聚合的网站。页面结构稳定，适合定期回看和了解更新。
+    </div>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes-grid">
+    <div class="scene-card">
+      <h3>📌 再次访问</h3>
+      <p>不记得上次看到哪里？通过书签或直接搜索域名可以快速回到主页面。建议将 <span style="font-weight:450;">问鼎娱乐</span> 加入浏览器收藏夹，方便下次直接进入。</p>
+      <span class="small-tag">🔖 Ctrl+D / 收藏</span>
+    </div>
+    <div class="scene-card">
+      <h3>📂 内容关注</h3>
+      <p>网站内容会保持更新与整理。如果你对某些信息有持续兴趣，可以间隔一段时间回来看看。没有推送，但变化会体现在首页与导航中。</p>
+      <span class="small-tag">⏳ 周期性浏览</span>
+    </div>
+    <div class="scene-card">
+      <h3>🔍 查阅与备忘</h3>
+      <p>将页面地址保存在笔记或群组里，方便随时查阅。当需要参考某些说明时，<span style="font-weight:450;">问鼎娱乐</span> 会是一个安静的备忘记。</p>
+      <span class="small-tag">📋 保存链接</span>
+    </div>
+  </div>
+
+  <!-- 常见说明 / FAQ 摘要 -->
+  <div class="faq-section">
+    <h2>常见说明 · 摘要</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">▸ 如何再次找到这个页面？</div>
+      <div class="faq-a">在浏览器地址栏输入域名，或从搜索引擎搜索 <a href="https://zhweb--wending.com">问鼎娱乐</a>，即可回到首页。建议使用收藏功能。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">▸ 页面内容会变化吗？</div>
+      <div class="faq-a">会。内容会按照实际运营情况调整，包括场景模块、说明项和提示信息。保持关注可以了解到最新整理。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">▸ 收藏链接有没有注意事项？</div>
+      <div class="faq-a">直接收藏根域名 <a href="https://zhweb--wending.com">问鼎娱乐</a> 即可。如果希望固定某个内部路径，请确认路径在更新后仍然有效。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">▸ 关于持续关注</div>
+      <div class="faq-a">没有邮件订阅，但可以通过定期回访来跟进。把网址放在浏览器常用栏或书签文件夹里，方便随时打开。</div>
+    </div>
+  </div>
+
+  <!-- 底部收藏与提示 -->
+  <div class="bookmark-note">
+    <span>💡 再次提醒</span>
+    将 <a href="https://zhweb--wending.com" class="quiet-link">问鼎娱乐</a> 加入收藏，下次回来不迷路。
+    <span style="background:#f0f3f8; padding:0.1rem 0.7rem; border-radius:30px;">已收藏 ✓</span>
+  </div>
+
+  <div class="footer-meta">
+    <div style="color:#5b6b7e; font-size:0.9rem;">
+      <span style="background:#e7ecf2; padding:0.1rem 0.6rem; border-radius:30px;">场景导航</span>  · 轻量说明
+    </div>
+    <div style="color:#6b7c91; font-size:0.85rem;">
+      持续关注 · 问鼎娱乐
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
