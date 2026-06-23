@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷速 · 知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+            padding: 3.8rem 1.5rem 3rem;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 {
+            color: #f1f5f9;
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.7rem;
+        }
+        .hero .sub {
+            color: #b9c9e0;
+            font-size: 1.05rem;
+            max-width: 640px;
+            margin: 0 auto;
+            border-top: 1px solid #334155;
+            padding-top: 1rem;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: #3b82f6;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+            margin-top: 1rem;
+        }
+
+        /* 浅色正文区 */
+        .wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2.2rem 1.5rem 4rem;
+        }
+
+        /* 目录感布局：卡片网格 + 模块标题 */
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #6b7a8f;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.8rem;
+            margin: 1.5rem 0 2.5rem;
+        }
+        @media (max-width: 600px) {
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 1.5rem 1.6rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04), 0 1px 4px rgba(0,0,0,0.03);
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #0f172a;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #334155;
+            margin-bottom: 0.2rem;
+        }
+        .card .meta {
+            font-size: 0.85rem;
+            color: #6b7a8f;
+            margin-top: 0.6rem;
+            border-top: 1px solid #eef2f6;
+            padding-top: 0.5rem;
+        }
+
+        /* 说明区 / 提示区 / 相关信息区 */
+        .info-block {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 1.8rem 1.8rem 2rem;
+            margin: 1.8rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border-left: 5px solid #3b82f6;
+        }
+        .info-block.alt {
+            border-left-color: #f59e0b;
+            background: #fffbf0;
+        }
+        .info-block h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+        .info-block p {
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-mini {
+            margin: 1.5rem 0 1rem;
+        }
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 600;
+            color: #0f172a;
+        }
+        .faq-a {
+            color: #475569;
+            margin-top: 0.15rem;
+        }
+
+        /* 强调色链接 */
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+        a:hover {
+            border-bottom-color: #2563eb;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #dce2ea;
+            font-size: 0.85rem;
+            color: #6b7a8f;
+            text-align: center;
+        }
+        .footer-note span {
+            display: inline-block;
+            margin: 0 0.4rem;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 480px) {
+            .wrapper {
+                padding: 1.5rem 1rem 3rem;
+            }
+            .info-block {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <header class="hero">
+        <h1>📚 雷速 · 知识库</h1>
+        <p class="sub">保持连接 · 持续关注 · 高效回溯<br>这是为再次访问和收藏习惯整理的入口页</p>
+        <span class="badge">方向 / 知识库入口式</span>
+    </header>
+
+    <main class="wrapper">
+
+        <!-- 目录感网格：再次访问与收藏 -->
+        <div class="section-label">📌 为何保留这里</div>
+        <div class="grid-2col">
+            <div class="card">
+                <h3>再次访问</h3>
+                <p>当你需要重新查阅某一篇说明、确认某个参数，或者想快速回到之前关注的模块，这个页面就是你统一的起点。不用在浏览器历史里翻找，也不用依赖零散的收藏夹。</p>
+                <div class="meta">→ 直接使用主链接即可</div>
+            </div>
+            <div class="card">
+                <h3>收藏与记录</h3>
+                <p>把本页加入书签，等于拥有一个轻量的目录。后期如有更新或补充，你会在同一位置找到最新整理的内容。这是为长期使用设计的稳定锚点。</p>
+                <div class="meta">→ 建议添加到浏览器书签栏</div>
+            </div>
+        </div>
+
+        <!-- 说明区：页面用途与结构 -->
+        <div class="info-block">
+            <h4>📖 关于这个页面</h4>
+            <p>本页是围绕 <a href="https://appm-leisu.com">雷速</a> 整理的知识库入口，聚焦于“如何持续获取信息”和“如何回溯关键内容”。它不是一个功能列表，而是一份经过梳理的说明索引，适合在需要时快速定位。</p>
+            <p style="margin-top:0.5rem;">所有资料均以清晰、克制的形式呈现，不包含未经验证的承诺或引导性话术。</p>
+        </div>
+
+        <!-- 提示区：关注与更新节奏 -->
+        <div class="info-block alt">
+            <h4>💡 持续关注的提示</h4>
+            <p>如果你对 <a href="https://appm-leisu.com">雷速</a> 涉及的内容保持兴趣，建议每隔一段时间回到这里。知识库会随实际反馈和核心方向进行补充，但不会频繁变动基础结构，避免造成混乱。</p>
+            <ul style="margin:0.6rem 0 0 1.3rem; color:#334155; font-size:0.95rem;">
+                <li>关注更新日志区域的摘要</li>
+                <li>留意页面顶部标记的版本或日期</li>
+                <li>遇到疑问可先检查说明区与 FAQ 摘要</li>
+            </ul>
+        </div>
+
+        <!-- FAQ 摘要 / 相关信息区 -->
+        <div class="section-label" style="margin-top:1.2rem;">❓ 常见提及 & 相关信息</div>
+        <div class="faq-mini">
+            <div class="faq-item">
+                <div class="faq-q">Q: 这个页面和主站是什么关系？</div>
+                <div class="faq-a">本页是面向再次访问和收藏需求设计的介绍页，并非主站的全部内容。核心入口指向 <a href="https://appm-leisu.com">雷速</a>，你可以通过它进入主站探索更多。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q: 信息会定期更新吗？</div>
+                <div class="faq-a">会，但以稳定为主。重要补充或修正会反映在说明区和提示区，不采用频繁推送的方式。建议你根据自身节奏回来查看。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q: 为什么强调“再次访问”和“收藏”？</div>
+                <div class="faq-a">因为很多用户习惯一次性阅读后就不再回头，但知识库的价值在于持续复用。这个页面降低了重新查找的成本，也保留了上下文。</div>
+            </div>
+        </div>
+
+        <!-- 相关信息区：补充条目 -->
+        <div style="margin:1rem 0 0.5rem; display: flex; flex-wrap: wrap; gap: 0.8rem 1.5rem; background:#fff; border-radius:16px; padding:1.2rem 1.5rem; box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+            <div><span style="font-weight:600; color:#0f172a;">📎 相关参考</span></div>
+            <div>· 使用前请确认你的网络环境</div>
+            <div>· 页面结构以实际访问为准</div>
+            <div>· 如有疑问可查阅主站对应区域</div>
+        </div>
+
+        <div class="footer-note">
+            <span>雷速 · 知识库入口</span>
+            <span>|</span>
+            <span>内容整理基于持续关注视角</span>
+            <span>|</span>
+            <span>版本标识 · 2405</span>
+        </div>
+
+    </main>
+
+</body>
+</html>
